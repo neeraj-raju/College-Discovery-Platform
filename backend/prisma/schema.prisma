@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(cuid())
+  email         String         @unique
+  password      String
+  name          String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  savedColleges SavedCollege[]
+
+  @@map("users")
+}
+
+model College {
+  id           String        @id @default(cuid())
+  name         String
+  location     String
+  city         String
+  state        String
+  type         CollegeType   @default(PRIVATE)
+  fees         Int
+  rating       Float         @default(0)
+  totalReviews Int           @default(0)
+  overview     String        @db.Text
+  established  Int
+  website      String?
+  imageUrl     String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  courses      Course[]
+  placements   Placement[]
+  reviews      Review[]
+  savedBy      SavedCollege[]
+
+  @@index([location])
+  @@index([fees])
+  @@index([rating])
+  @@index([type])
+  @@map("colleges")
+}
+
+enum CollegeType {
+  GOVERNMENT
+  PRIVATE
+  DEEMED
+}
+
+model Course {
+  id        String  @id @default(cuid())
+  name      String
+  duration  Int
+  fees      Int
+  seats     Int
+  collegeId String
+  college   College @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+
+  @@index([collegeId])
+  @@map("courses")
+}
+
+model Placement {
+  id             String   @id @default(cuid())
+  year           Int
+  avgPackage     Float
+  highestPackage Float
+  placementRate  Float
+  topRecruiters  String[]
+  collegeId      String
+  college        College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+
+  @@index([collegeId])
+  @@map("placements")
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Float
+  title     String
+  body      String   @db.Text
+  author    String
+  batch     Int
+  collegeId String
+  college   College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@index([collegeId])
+  @@map("reviews")
+}
+
+model SavedCollege {
+  id        String   @id @default(cuid())
+  userId    String
+  collegeId String
+  savedAt   DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  college   College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, collegeId])
+  @@map("saved_colleges")
+}

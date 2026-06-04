@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-surface-950 text-slate-200 font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 50%, rgba(6, 182, 212, 0.08), transparent);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a1a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.5);
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl border border-white/[0.08] rounded-2xl;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .glass-hover {
+    @apply glass transition-all duration-300;
+  }
+
+  .glass-hover:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1), 0 0 0 1px rgba(99, 102, 241, 0.05);
+  }
+
+  .glass-strong {
+    @apply backdrop-blur-2xl border border-white/[0.1] rounded-2xl;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-primary-300 to-accent-400;
+  }
+
+  .gradient-text-hero {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #818cf8 0%, #a78bfa 30%, #c084fc 60%, #22d3ee 100%);
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center px-6 py-3 font-semibold text-white rounded-xl transition-all duration-300 overflow-hidden;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  }
+
+  .btn-primary:hover {
+    @apply shadow-lg shadow-primary-500/25 scale-[1.02];
+    background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+  }
+
+  .btn-primary:active {
+    @apply scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply relative inline-flex items-center justify-center px-6 py-3 font-semibold text-slate-200 rounded-xl transition-all duration-300 border border-white/[0.1];
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .btn-secondary:hover {
+    @apply border-white/[0.2];
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-white/[0.1] bg-white/[0.03] text-white placeholder-slate-500 transition-all duration-300 outline-none;
+  }
+
+  .input-field:focus {
+    @apply border-primary-500/50 ring-2 ring-primary-500/20;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase;
+  }
+
+  .badge-government {
+    @apply badge bg-emerald-500/15 text-emerald-400 border border-emerald-500/20;
+  }
+
+  .badge-private {
+    @apply badge bg-blue-500/15 text-blue-400 border border-blue-500/20;
+  }
+
+  .badge-deemed {
+    @apply badge bg-purple-500/15 text-purple-400 border border-purple-500/20;
+  }
+
+  .skeleton {
+    @apply relative overflow-hidden rounded-xl;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+@layer utilities {
+  .animate-stagger-1 { animation-delay: 0.1s; }
+  .animate-stagger-2 { animation-delay: 0.2s; }
+  .animate-stagger-3 { animation-delay: 0.3s; }
+  .animate-stagger-4 { animation-delay: 0.4s; }
+  .animate-stagger-5 { animation-delay: 0.5s; }
+}
