@@ -7,9 +7,11 @@ This project was built following the expectations of **Track B (College Discover
 ---
 
 ## 🚀 Live Demo & Submission Links
-* **Live App URL**: `https://your-frontend-deployment.vercel.app` *(Replace with your Vercel URL)*
-* **Loom Video (Architecture & Walkthrough)**: `https://loom.com/your-video-id` *(Replace with your Loom video URL)*
-* **GitHub Repository**: `https://github.com/your-username/college-discovery-platform` *(Replace with your repo URL)*
+* **Live App URL**: *[Your Vercel Frontend URL will go here after deployment]*
+* **Backend API URL**: `https://college-discovery-backend-fhoz.onrender.com`
+* **GitHub Repository**: `https://github.com/neeraj-raju/College-Discovery-Platform`
+* **Loom Video (Architecture & Walkthrough)**: *[Replace with your Loom video URL]*
+
 
 ---
 
