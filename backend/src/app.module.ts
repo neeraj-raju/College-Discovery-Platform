@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { CollegesModule } from './colleges/colleges.module';
 import { CompareModule } from './compare/compare.module';
 import { SavedModule } from './saved/saved.module';
+import { PredictorModule } from './predictor/predictor.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { SavedModule } from './saved/saved.module';
     CollegesModule,
     CompareModule,
     SavedModule,
+    PredictorModule,
   ],
 })
 export class AppModule {}

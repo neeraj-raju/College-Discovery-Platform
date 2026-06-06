@@ -60,6 +60,8 @@ model Course {
   duration  Int
   fees      Int
   seats     Int
+  exam      String? // e.g. JEE Main, NEET, GATE
+  cutoff    Int?    // Closing rank cutoff
   collegeId String
   college   College @relation(fields: [collegeId], references: [id], onDelete: Cascade)
 

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
-import { GraduationCap, Menu, X, LogIn, LogOut, Heart, GitCompareArrows, Home } from 'lucide-react';
+import { GraduationCap, Menu, X, LogIn, LogOut, Heart, GitCompareArrows, Home, Sparkles } from 'lucide-react';
 
 export default function Navbar() {
   const { user, loading, logout } = useAuth();
@@ -27,6 +27,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-1">
             <NavLink href="/" icon={<Home className="w-4 h-4" />} label="Home" />
             <NavLink href="/compare" icon={<GitCompareArrows className="w-4 h-4" />} label="Compare" />
+            <NavLink href="/predictor" icon={<Sparkles className="w-4 h-4" />} label="Predictor" />
             {user && <NavLink href="/saved" icon={<Heart className="w-4 h-4" />} label="Saved" />}
           </div>
 
@@ -90,6 +91,7 @@ export default function Navbar() {
           <div className="px-4 py-4 space-y-1">
             <MobileNavLink href="/" label="Home" onClick={() => setMobileOpen(false)} />
             <MobileNavLink href="/compare" label="Compare" onClick={() => setMobileOpen(false)} />
+            <MobileNavLink href="/predictor" label="Predictor" onClick={() => setMobileOpen(false)} />
             {user && <MobileNavLink href="/saved" label="Saved" onClick={() => setMobileOpen(false)} />}
             <div className="pt-3 border-t border-white/[0.06] mt-3">
               {user ? (

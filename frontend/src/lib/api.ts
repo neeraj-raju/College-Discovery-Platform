@@ -165,3 +165,19 @@ export async function unsaveCollege(collegeId: string) {
 export async function checkSaveStatus(collegeId: string) {
   return fetchApi<{ isSaved: boolean }>(`/saved/${collegeId}/status`);
 }
+
+// Predictor
+export interface PredictionResult {
+  courseId: string;
+  courseName: string;
+  cutoff: number;
+  fees: number;
+  duration: number;
+  seats: number;
+  college: College;
+}
+
+export async function predictColleges(exam: string, rank: number) {
+  return fetchApi<PredictionResult[]>(`/predictor?exam=${encodeURIComponent(exam)}&rank=${rank}`);
+}
+

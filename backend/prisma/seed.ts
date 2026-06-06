@@ -194,11 +194,11 @@ async function main() {
         imageUrl: imageUrl,
         courses: {
           create: [
-            { name: 'B.Tech Computer Science & Engineering', duration: 4, fees: baseFees, seats: 120 },
-            { name: 'B.Tech Electronics & Communication Engineering', duration: 4, fees: Math.floor(baseFees * 0.9), seats: 90 },
-            { name: 'B.Tech Mechanical Engineering', duration: 4, fees: Math.floor(baseFees * 0.8), seats: 60 },
-            { name: 'M.Tech Computer Science', duration: 2, fees: Math.floor(baseFees * 0.75), seats: 30 },
-            { name: 'Master of Business Administration (MBA)', duration: 2, fees: Math.floor(baseFees * 1.1), seats: 60 },
+            { name: 'B.Tech Computer Science & Engineering', duration: 4, fees: baseFees, seats: 120, exam: 'JEE Main', cutoff: input.name.startsWith('IIT') ? Math.floor(800 + Math.random() * 1200) : input.name.startsWith('NIT') ? Math.floor(4000 + Math.random() * 6000) : Math.floor(15000 + Math.random() * 30000) },
+            { name: 'B.Tech Electronics & Communication Engineering', duration: 4, fees: Math.floor(baseFees * 0.9), seats: 90, exam: 'JEE Main', cutoff: input.name.startsWith('IIT') ? Math.floor(2000 + Math.random() * 2000) : input.name.startsWith('NIT') ? Math.floor(8000 + Math.random() * 8000) : Math.floor(25000 + Math.random() * 40000) },
+            { name: 'B.Tech Mechanical Engineering', duration: 4, fees: Math.floor(baseFees * 0.8), seats: 60, exam: 'JEE Main', cutoff: input.name.startsWith('IIT') ? Math.floor(4000 + Math.random() * 4000) : input.name.startsWith('NIT') ? Math.floor(15000 + Math.random() * 15000) : Math.floor(40000 + Math.random() * 60000) },
+            { name: 'M.Tech Computer Science', duration: 2, fees: Math.floor(baseFees * 0.75), seats: 30, exam: 'GATE', cutoff: Math.floor(400 + Math.random() * 400) },
+            { name: 'Master of Business Administration (MBA)', duration: 2, fees: Math.floor(baseFees * 1.1), seats: 60, exam: 'CAT', cutoff: Math.floor(80 + Math.random() * 18) },
           ],
         },
         placements: {
