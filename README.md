@@ -11,7 +11,7 @@ This project was built following the expectations of **Track B (College Discover
 * **Backend API URL**: `https://college-discovery-backend-fhoz.onrender.com`
 * **GitHub Repository**: `https://github.com/neeraj-raju/College-Discovery-Platform`
 
-* **Loom Video (Architecture & Walkthrough)**: *[Replace with your Loom video URL]*
+
 
 
 ---
